@@ -5,11 +5,11 @@ import edu.kis.vh.nursery.factory.Rhymersfactory;
 
 class RhymersDemo {
 
-    public static final int rangeStart1 = 1;
-    public static final int rangeEnd1 = 15;
-    public static final int rangeStart2 = 0;
-    public static final int rangeEnd2 = 3;
-    public static final int randomRange = 20;
+    private static final int rangeStart1 = 1;
+    private static final int rangeEnd1 = 15;
+    private static final int rangeStart2 = 0;
+    private static final int rangeEnd2 = 3;
+    private static final int randomRange = 20;
 
     public static void main(String[] args) {
         Rhymersfactory factory = new DefaultRhymersFactory();
@@ -17,6 +17,11 @@ class RhymersDemo {
         DefaultCountingOutRhymer[] rhymers = {factory.getStandardRhymer(), factory.getFalseRhymer(),
                 factory.getFIFORhymer(), factory.getHanoiRhymer()};
 
+        testRhymes(rhymers);
+
+    }
+
+    private static void testRhymes(DefaultCountingOutRhymer[] rhymers) {
         for (int i = rangeStart1; i < rangeEnd1; i++) {
             for (int j = rangeStart2; j < rangeEnd2; j++) {
                 rhymers[j].countIn(i);
@@ -37,7 +42,6 @@ class RhymersDemo {
 
         System.out.println("total rejected is "
                 + ((HanoiRhymer) rhymers[rangeEnd2]).reportRejected());
-
     }
 
 }
